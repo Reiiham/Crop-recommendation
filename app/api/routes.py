@@ -6,13 +6,16 @@ router = APIRouter()
 
 @router.post("/predict")
 def predict(data: InputData):
-    crop, temp, humidity, rainfall = PredictionService.predict_crop(data)
+    crops, temp, humidity, rainfall, warnings = PredictionService.predict_crop(data)
 
     return {
-        "recommended_crop": crop,
-        "weather": {
-            "temperature": temp,
-            "humidity": humidity,
-            "rainfall": rainfall
-        }
-    }
+    "recommended_crops": crops,
+    "weather": {
+        "temperature": temp,
+        "humidity": humidity,
+        "rainfall": rainfall
+    },
+    "warnings": warnings
+}
+
+

@@ -1,3 +1,4 @@
+from typing import Optional
 from pydantic import BaseModel
 
 class InputData(BaseModel):
@@ -7,3 +8,4 @@ class InputData(BaseModel):
     P: float
     K: float
     ph: float
+    month: Optional[int] = None
